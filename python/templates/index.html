@@ -1,21 +1,40 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <link rel="stylesheet" href="{{ url_for('css', filename='styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('css', filename='style2s.css') }}">
+    <link rel="stylesheet" href="{{ url_for('css', filename='styletheme.css') }}">
     <meta charset="UTF-8">
     <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/logo_volerICON.png') }}">
     <title>Titre de votre page</title>
 </head>
-<header>    <img src="{{ url_for('static', filename='images/logo_volerICON.png') }}" alt="Logo" class="logo"></body>
-    <nav>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#explore">Explore</a></li>
-            <li><a href="#notifications">Notifications</a></li>
-            <li><a href="#messages">Messages</a></li>
-            <li><a href="#lists">Lists</a></li>
-        </ul>
-    </nav>
-</header>
 <body>
+    <header>
+        <img src="{{ url_for('static', filename='images/logo_volerICON.png') }}" alt="Logo" class="logo">
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#explore">Explore</a></li>
+                <li><a href="#notifications">Notifications</a></li>
+                <li><a href="#messages">Messages</a></li>
+                <li><a href="#lists">Lists</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    
+    <div>
+        <label for="themeSelect">Choisir un thème:</label>
+        <select id="themeSelect" onchange="changeTheme(this.value)">
+            <option value="theme1">Thème 1</option>
+            <option value="theme2">Thème 2</option>
+            
+        </select>
+    </div>
+    <script>
+        
+        function changeTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+        }
+    </script>
+</body>
 </html>

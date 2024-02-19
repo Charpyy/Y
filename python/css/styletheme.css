@@ -1,0 +1,61 @@
+:root {
+    --color-primary-theme1: #ffffff;
+    --color-secondary-theme1: #000000;
+    --color-primary-theme2: #000000;
+    --color-secondary-theme2: #ffffff;
+}
+
+[data-theme="theme1"] {
+    --color-primary: var(--color-primary-theme1);
+    --color-secondary: var(--color-secondary-theme1);
+    background-color: white;
+    color: black;
+}
+
+[data-theme="theme2"] {
+    --color-primary: var(--color-primary-theme2);
+    --color-secondary: var(--color-secondary-theme2);
+    background-color: black;
+    color: white;
+}
+
+body {
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+header {
+    background-color: var(--color-primary);
+    padding: 0rem;
+    text-align: left;
+}
+
+header h1 {
+    margin: 0;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0 20px;
+    margin-bottom: 30px;
+}
+
+nav ul li {
+    display: table-row;
+    padding: 1rem;
+}
+
+nav ul li a {
+    text-decoration: none;
+    margin-bottom: 20px;
+    color: var(--color-secondary);
+}
+
+.logo {
+    max-width: 64px;
+    max-height: 64px;
+    margin-top: 0px;
+    margin-left: 0px;
+}

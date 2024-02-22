@@ -9,7 +9,7 @@
 </head>
 <body>
     <header>
-        <img src="{{ url_for('static', filename='images/logo_volerICON.png') }}" alt="Logo" class="logo">
+        <img id="logoImage" src="{{ url_for('static', filename='images/imagenoir.png') }}" alt="Logo" class="logo">
         <nav>
             <ul>
                 <li><a href="#home">Home</a></li>
@@ -21,19 +21,25 @@
         </nav>
     </header>
 
-    
     <div>
         <label for="themeSelect">Choisir un thème:</label>
         <select id="themeSelect" onchange="changeTheme(this.value)">
             <option value="theme1">Thème 1</option>
             <option value="theme2">Thème 2</option>
-            
         </select>
     </div>
+
     <script>
-        
         function changeTheme(theme) {
             document.documentElement.setAttribute('data-theme', theme);
+
+            
+            var logoImage = document.getElementById('logoImage');
+            if (theme === 'theme1') {
+                logoImage.src = "{{ url_for('static', filename='images/imagenoir.png') }}";
+            } else if (theme === 'theme2') {
+                logoImage.src = "{{ url_for('static', filename='images/imageblanc.png') }}";
+            }
         }
     </script>
 </body>

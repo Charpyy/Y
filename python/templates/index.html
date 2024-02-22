@@ -17,18 +17,16 @@
                 <li><a href="#notifications">Notifications</a></li>
                 <li><a href="#messages">Messages</a></li>
                 <li><a href="#lists">Lists</a></li>
-            </ul>
+                <li><label for="themeSelect">Choisir un thème:</label>
+                    <select id="themeSelect" onchange="changeTheme(this.value)">
+                        <option value="theme1">Thème 1</option>
+                        <option value="theme2">Thème 2</option>
+                    </select></li></ul>
         </nav>
     </header>
-
-    <div>
-        <label for="themeSelect">Choisir un thème:</label>
-        <select id="themeSelect" onchange="changeTheme(this.value)">
-            <option value="theme1">Thème 1</option>
-            <option value="theme2">Thème 2</option>
-        </select>
+    <div class="side-box">
+        <p>Votre texte ici</p>
     </div>
-
     <script>
         function changeTheme(theme) {
             document.documentElement.setAttribute('data-theme', theme);
@@ -43,4 +41,5 @@
         }
     </script>
 </body>
+<footer> 2024 Y. Tous droits réservés.</footer>
 </html>

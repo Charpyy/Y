@@ -24,12 +24,16 @@ body {
     color: var(--color-secondary);
     font-family: Arial, sans-serif;
     line-height: 1.6;
+    flex-direction: row;
+    display: flex;
 }
 
 header {
     background-color: var(--color-primary);
     padding: 0rem;
     text-align: left;
+    flex-direction: column;
+    display: flex;
 }
 
 header h1 {
@@ -43,7 +47,7 @@ nav ul {
 }
 
 nav ul li {
-    display: table-row;
+    display: flex;
     padding: 1rem;
 }
 
@@ -58,4 +62,20 @@ nav ul li a {
     max-height: 64px;
     margin-top: 0px;
     margin-left: 0px;
+}
+footer{
+    text-align: center;
+    padding: 20px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+.side-box {
+    float: right;
+    width: 150px; 
+    height: 150px;
+    background-color: #eee;
+    padding: 10px;
+    margin-left: 500px;
+    
 }

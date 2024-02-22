@@ -1,4 +1,4 @@
-import sqlite3
+"""import sqlite3
 conn = sqlite3.connect('users.db')
 cur = conn.cursor()
 cur.execute('''CREATE TABLE IF NOT EXISTS Utilisateurs (
@@ -10,3 +10,4 @@ cur.execute('''CREATE TABLE IF NOT EXISTS Utilisateurs (
 #cur.execute("INSERT INTO Utilisateurs (pseudo, mdp, email) VALUES (?, ?, ?)", ('Bob', 'mot_de_passe_bob', 'bob@example.com'))
 #conn.commit()
 conn.close()
+"""

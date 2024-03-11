@@ -1,28 +1,116 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-    transition: background-color 0.5s, color 0.5s;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--color-secondary);
+    transition: color 0.5s, background-color 0.5s;
 }
 
-.header, .nav, .nav-list {
-    transition: background-color 0.5s, color 0.5s;
+:root {
+    --color-primary: #1d1f21;
+    --color-secondary: #ffffff;
+    --color-secondary-inverted: #1d1f21;
 }
 
-.inverted {
-    background-color: black;
-    color: white;
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-gap: 1rem;
 }
 
-.logo {
-    height: 50px;
-    margin-right: 10px;
+header {
+    grid-column: span 12;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: var(--color-primary);
 }
 
-.nav-link {
-    color: #333;
-    text-decoration: none;
-    padding: 5px 10px;
+header .logo {
+    grid-column: span 2;
 }
 
-.nav-link:hover {
-    background-color: #333;
-    color: white;
+header nav {
+    grid-column: span 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
+
+header nav ul {
+    display: flex;
+    list-style-type: none;
+}
+
+header nav ul li {
+    margin-right: 1rem;
+}
+
+header nav ul li a {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: var(--color-secondary);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+header nav ul li a:hover {
+    background-color: var(--color-secondary);
+    color: var(--color-primary);
+}
+
+main {
+    grid-column: span 12;
+}
+
+main section {
+    grid-column: span 12;
+}
+
+footer {
+    grid-column: span 12;
+    text-align: center;
+    padding: 20px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+@media (min-width: 768px) {
+    header {
+        grid-template-columns: repeat(12, 1fr);
+    }
+
+    header .logo {
+        grid-column: span 3;
+    }
+
+    header nav {
+        grid-column: span 9;
+    }
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--color-secondary);
+    transition: color 0.5s, background-color 0.5s;
+}
+
+:root {
+    --color-primary: #1d1f21;
+    --color-secondary: #ffffff;
+    --color-secondary-inverted: #1

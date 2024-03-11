@@ -5,17 +5,38 @@
     <meta charset="UTF-8">
     <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/logo_volerICON.png') }}">
     <title>Titre de votre page</title>
+    <script>
+        function inverserCouleurs() {
+            var body = document.body;
+            var header = document.querySelector('header');
+            var nav = document.querySelector('nav');
+            var ul = document.querySelector('ul');
+            
+            
+            body.style.backgroundColor = body.style.backgroundColor === 'black' ? 'white' : 'black';
+            body.style.color = body.style.color === 'white' ? 'black' : 'white';
+            header.style.backgroundColor = header.style.backgroundColor === 'black' ? 'white' : 'black';
+            header.style.color = header.style.color === 'white' ? 'black' : 'white';
+            nav.style.backgroundColor = nav.style.backgroundColor === 'black' ? 'white' : 'black';
+            nav.style.color = nav.style.color === 'white' ? 'black' : 'white';
+            ul.style.backgroundColor = ul.style.backgroundColor === 'black' ? 'white' : 'black';
+            ul.style.color = ul.style.color === 'white' ? 'black' : 'white';
+        }
+    </script>
 </head>
-<header>    <img src="{{ url_for('static', filename='images/logo_volerICON.png') }}" alt="Logo" class="logo"></body>
-    <nav>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#explore">Explore</a></li>
-            <li><a href="#notifications">Notifications</a></li>
-            <li><a href="#messages">Messages</a></li>
-            <li><a href="#lists">Lists</a></li>
-        </ul>
-    </nav>
-</header>
 <body>
+    <button onclick="inverserCouleurs()">Inverser Couleurs</button>
+    <header>    
+        <img src="{{ url_for('static', filename='images/logo_volerICON.png') }}" alt="Logo" class="logo">
+        <nav>
+            <ul>
+                <li><a href="/python/templates/home.html">Home</a></li>
+                <li><a href="#explore">Explore</a></li>
+                <li><a href="#notifications">Notifications</a></li>
+                <li><a href="#messages">Messages</a></li>
+                <li><a href="#lists">Lists</a></li>
+            </ul>
+        </nav>
+    </header>
+</body>
 </html>

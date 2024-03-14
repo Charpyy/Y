@@ -1,4 +1,4 @@
-from flask import Flask, render_template, send_from_directory #sqlite3
+from flask import Flask, render_template, send_from_directory , flask_sqlalchemy
 import os
 
 app = Flask(__name__)
@@ -13,10 +13,13 @@ def css(filename):
 @app.route('/')
 def acc():
     return render_template('index.html')
-@app.route('/')
+@app.route('/home')
 def home():
     return render_template('home.html')
-
+@app.route('/messages')
+def messages():
+    messages = Message.query.all()
+    return render_template('messages.html', messages=messages)
 
 if __name__ == '__main__':
     app.run(debug=True)

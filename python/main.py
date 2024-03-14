@@ -1,25 +1,29 @@
-from flask import Flask, render_template, send_from_directory , flask_sqlalchemy
-import os
+from flask import Flask, render_template, redirect, url_for, request
+import pandas as pd
 
 app = Flask(__name__)
-css_dir = os.path.join(os.path.dirname(__file__), 'css')
 
-
-@app.route('/css/<path:filename>')
-def css(filename):
-    return send_from_directory(css_dir, filename)
-
+users = pd.read_csv('User.csv')['user'].tolist()
+passwords = pd.read_csv('User.csv')['password'].tolist()
 
 @app.route('/')
-def acc():
+def index():
     return render_template('index.html')
+
+@app.route('/login', methods=['POST'])
+def login():
+    user = request.form['user']
+    password = request.form['password']
+
+    # Vérifiez si les informations d'identification sont valides
+    if user in users and passwords[users.index(user)] == password:
+        return redirect(url_for('home'))
+    else:
+        return 'Invalid credentials'
+
 @app.route('/home')
 def home():
-    return render_template('home.html')
-@app.route('/messages')
-def messages():
-    messages = Message.query.all()
-    return render_template('messages.html', messages=messages)
+    return 'Welcome to the home page!'
 
 if __name__ == '__main__':
     app.run(debug=True)

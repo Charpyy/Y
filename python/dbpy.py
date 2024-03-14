@@ -1,4 +1,4 @@
-from flask_sqlalchemy import SQLAlchemy
+"""from flask_sqlalchemy import SQLAlchemy
 from flask_sqlalchemy import Message
 db = SQLAlchemy(app)
 
@@ -8,4 +8,4 @@ class Message(db.Model):
     timestamp = db.Column(db.DateTime, default=datetime.utcnow)
 
     def __repr__(self):
-        return f'<Message {self.id}>'
+        return f'<Message {self.id}>'"""

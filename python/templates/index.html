@@ -15,7 +15,7 @@
             
             body.style.backgroundColor = body.style.backgroundColor === 'black' ? 'white' : 'black';
             body.style.color = body.style.color === 'white' ? 'black' : 'white';
-            header.style.backgroundColor = header.style.backgroundColor === 'black' ? 'white' : 'black';
+            header.style.backgroundColor = header.style.backgroundColor === 'black' ?'white' : 'black';
             header.style.color = header.style.color === 'white' ? 'black' : 'white';
             nav.style.backgroundColor = nav.style.backgroundColor === 'black' ? 'white' : 'black';
             nav.style.color = nav.style.color === 'white' ? 'black' : 'white';
@@ -25,7 +25,12 @@
     </script>
 </head>
 <body>
-    <button onclick="inverserCouleurs()">Inverser Couleurs</button>
+    {% if current_user.is_authenticated %}
+        <button onclick="inverserCouleurs()">Inverser Couleurs</button>
+        <a href="{{ url_for('logout') }}">Déconnexion</a>
+    {% else %}
+        <a href="{{ url_for('login') }}">Connexion</a>
+    {% endif %}
     <header>    
         <img src="{{ url_for('static', filename='images/imagenoir.png') }}" alt="Logo" class="logo">
         <nav>
@@ -45,6 +50,4 @@
             <img src="{{ url_for('static', filename='images/test.png') }}" alt="Image">
         </div>
     </div>
-    <footer> 2024 Y. Tous droits réservés.</footer>
-</body>
-</html>
+    <footer> 2024 Y. Tous droits réservés.</

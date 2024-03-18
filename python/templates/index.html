@@ -1,53 +1,97 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html>
 <head>
-    <link rel="stylesheet" href="{{ url_for('css', filename='style2s.css') }}">
-    <link rel="stylesheet" href="{{ url_for('css', filename='styletheme.css') }}">
-    <meta charset="UTF-8">
-    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/logo_volerICON.png') }}">
-    <title>Titre de votre page</title>
-    <script>
-        function inverserCouleurs() {
-            var body = document.body;
-            var header = document.querySelector('header');
-            var nav = document.querySelector('nav');
-            var ul = document.querySelector('ul');
-            
-            body.style.backgroundColor = body.style.backgroundColor === 'black' ? 'white' : 'black';
-            body.style.color = body.style.color === 'white' ? 'black' : 'white';
-            header.style.backgroundColor = header.style.backgroundColor === 'black' ?'white' : 'black';
-            header.style.color = header.style.color === 'white' ? 'black' : 'white';
-            nav.style.backgroundColor = nav.style.backgroundColor === 'black' ? 'white' : 'black';
-            nav.style.color = nav.style.color === 'white' ? 'black' : 'white';
-            ul.style.backgroundColor = ul.style.backgroundColor === 'black' ? 'white' : 'black';
-            ul.style.color = ul.style.color === 'white' ? 'black' : 'white';
-        }
-    </script>
+    <title>Ma bibliothèque</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <style>body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f2f2f2;
+    }
+    
+    h1 {
+        text-align: center;
+        font-size: 2em;
+        margin: 0;
+        padding: 20px;
+        background-color: #333;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        
+    }
+    
+    h1 img {
+        margin-left: 2px;
+    }
+    
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+    
+    li {
+        padding: 10px;
+        background-color: #fff;
+        border-bottom: 1px solid #ddd;
+    }
+    
+    a {
+        color: #337ab7;
+        text-decoration: none;
+    }
+    
+    a:hover {
+        text-decoration: underline;
+    }
+    
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    
+    .form-group {
+        margin-bottom: 20px;
+    }
+    
+    label {
+        display: block;
+        margin-bottom: 5px;
+    }
+    
+    input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    
+    button[type="submit"] {
+        padding: 10px 20px;
+        background-color: #337ab7;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    
+    button[type="submit"]:hover {
+        background-color: #23527c;
+    }</style>
 </head>
 <body>
-    {% if current_user.is_authenticated %}
-        <button onclick="inverserCouleurs()">Inverser Couleurs</button>
-        <a href="{{ url_for('logout') }}">Déconnexion</a>
-    {% else %}
-        <a href="{{ url_for('login') }}">Connexion</a>
-    {% endif %}
-    <header>    
-        <img src="{{ url_for('static', filename='images/imagenoir.png') }}" alt="Logo" class="logo">
-        <nav>
-            <ul>
-                <li><a href="home">Home</a></li>
-                <li><a href="#explore">Explore</a></li>
-                <li><a href="#notifications">Notifications</a></li>
-                <li><a href="messages">Messages</a></li>
-                <li><a href="#lists">Lists</a></li>
-            </ul>
-        </nav>
-    </header>
     <div class="container">
-        <div class="centre-content grid-column-span-4">
-            <h1>Bienvenue sur Y</h1>
-            <p>POST TEST</p>
-            <img src="{{ url_for('static', filename='images/test.png') }}" alt="Image">
-        </div>
+        <h1>Bienvenue sur <img src="{{ url_for('static', filename='images/imageblanc.png') }}" alt="Image" style="float: right; width: 128px; height: 128px;"></h1>
+        <ul>
+            {% for book in books %}
+                <li>{{ book.title }} par {{ book.author }}</li>
+            {% endfor %}
+        </ul>
+        <p><a href="{{ url_for('create') }}">Créer un livre</a></p>
+        <p><a href="{{ url_for('delete_all') }}">Vider la base de données</a></p>
     </div>
-    <footer> 2024 Y. Tous droits réservés.</
+</body>
+</html>
